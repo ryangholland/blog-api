@@ -10,6 +10,10 @@ const postSchema = mongoose.Schema(
       type: String,
       required: [true, "Please add text"],
     },
+    published: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,

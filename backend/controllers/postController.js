@@ -11,7 +11,7 @@ const getPosts = asyncHandler(async (req, res) => {
   res.status(200).json(posts);
 });
 
-// @desc    Create posts
+// @desc    Create post
 // @route   POST /api/posts
 // @access  ?
 const createPost = asyncHandler(async (req, res) => {
