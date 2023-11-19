@@ -25,6 +25,7 @@ const createPost = asyncHandler(async (req, res) => {
   }
 
   const post = await Post.create({
+    user: req.user.id,
     title: req.body.title,
     text: req.body.text,
   });
@@ -43,9 +44,13 @@ const updatePost = asyncHandler(async (req, res) => {
     throw new Error("Post not found.");
   }
 
-  const updatedPost = await Post.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-  });
+  const updatedPost = await Post.findByIdAndUpdate(
+    req.params.id,
+    { title: req.body.title, text: req.body.text },
+    {
+      new: true,
+    }
+  );
   res.status(200).json(updatedPost);
 });
 
