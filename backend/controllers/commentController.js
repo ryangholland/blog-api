@@ -4,7 +4,7 @@ const Comment = require("../models/commentModel");
 
 // @desc    Get comments
 // @route   GET /api/comments
-// @access  ?
+// @access  Public
 const getComments = asyncHandler(async (req, res) => {
   const comments = await Comment.find();
 
@@ -13,7 +13,7 @@ const getComments = asyncHandler(async (req, res) => {
 
 // @desc    Create comment
 // @route   POST /api/comments
-// @access  ?
+// @access  Public
 const createComment = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
@@ -31,7 +31,7 @@ const createComment = asyncHandler(async (req, res) => {
 
 // @desc    Delete comment
 // @route   DELETE /api/comments/:id
-// @access  ?
+// @access  Private
 const deleteComment = asyncHandler(async (req, res) => {
   const comment = await Comment.findById(req.params.id);
 

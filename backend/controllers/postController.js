@@ -4,7 +4,7 @@ const Post = require("../models/postModel");
 
 // @desc    Get posts
 // @route   GET /api/posts
-// @access  ?
+// @access  Public
 const getPosts = asyncHandler(async (req, res) => {
   const posts = await Post.find();
 
@@ -13,7 +13,7 @@ const getPosts = asyncHandler(async (req, res) => {
 
 // @desc    Create post
 // @route   POST /api/posts
-// @access  ?
+// @access  Private
 const createPost = asyncHandler(async (req, res) => {
   if (!req.body.title) {
     res.status(400);
@@ -34,7 +34,7 @@ const createPost = asyncHandler(async (req, res) => {
 
 // @desc    Update post
 // @route   PUT /api/posts/:id
-// @access  ?
+// @access  Private
 const updatePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.id);
 
@@ -51,7 +51,7 @@ const updatePost = asyncHandler(async (req, res) => {
 
 // @desc    Delete post
 // @route   DELETE /api/posts/:id
-// @access  ?
+// @access  Private
 const deletePost = asyncHandler(async (req, res) => {
   const post = await Post.findById(req.params.id);
 
